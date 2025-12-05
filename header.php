@@ -30,14 +30,21 @@
                 <div class="main-box clearfix">
 
                     <?php 
-                    $header_logo = get_field( "header_logo", "option" );
-                    $logo_url = wp_get_attachment_image_src($header_logo, 'full')
+                        $header_logo_id = get_field("header_logo", "option");
+                        $header_logo_url = wp_get_attachment_url($header_logo_id);
+                        ?>
 
-                    ?>
+                        <?php if($header_logo_url) { ?>
+                        <div class="logo-box">
+                            <div class="logo">
+                            <a href="<?php echo home_url('/'); ?>">
+                                <img src="<?php echo esc_url($header_logo_url); ?>" alt="Header Logo">
+                            </a>
+                            </div>
+                        </div>
+                        <?php } ?>
 
-                    <div class="logo-box">
-                        <div class="logo"><a href="index-2.html"><img src="<?php echo get_template_directory_uri(); ?>/images/logo-2.png" alt="" title=""></a></div>
-                    </div>
+
 
                     <div class="nav-outer clearfix">
                         <!-- Main Menu -->

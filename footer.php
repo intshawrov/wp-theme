@@ -8,13 +8,21 @@
                     <div class="big-column col-xl-7 col-lg-12 col-md-12 col-sm-12">
                         <div class="row">
                             <!--Footer Column-->
+
+                            <?php 
+                                $footer_logo_url = get_field("footer_logo", "option");  
+                                ?>
+
                             <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                 <div class="footer-widget about-widget">
+                                    <?php if(!empty($footer_logo_url)){ ?>
                                     <div class="footer-logo">
                                         <figure>
-                                            <a href="index-2.html"><img src="<?php echo get_template_directory_uri(); ?>/images/footer-logo.png" alt=""></a>
+                                            <a href="<?php echo home_url('/'); ?>"><img src="<?php echo esc_url($footer_logo_url); ?>" alt="Footer Logo"></a>
                                         </figure>
                                     </div>
+
+                                    <?php  } ?>
                                     <div class="widget-content">
                                         <div class="text">Contra and layouts, in content of dummy text is nonsensical.typefaces of dummy text is appearance of different general the content of dummy text is nonsensical. typefaces of dummy text is nonsensical.</div>
                                     </div>
@@ -68,6 +76,7 @@
                                 </div>
                             </div>
 
+                            
                             <!--Footer Column-->
                             <div class="footer-column col-xl-7 col-lg-6 col-md-6 col-sm-12">
                                 <div class="footer-widget gallery-widget">
