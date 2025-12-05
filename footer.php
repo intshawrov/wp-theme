@@ -12,10 +12,7 @@
                             <?php 
                                 $footer_logo_url = get_field("footer_logo", "option");
                                 $footer_description = get_field("footer_description", "option");  
-                                $contact_us = get_field("contact_us", "option"); 
-                                $address = $contact_us['address'];
-                                $contact = $contact_us['contact'];
-                                $email_address = $contact_us['email_address'];
+                                
                                 ?>
 
                             <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">

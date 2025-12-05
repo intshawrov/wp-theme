@@ -1,45 +1,45 @@
 <?php 
 /* Template Name: Homepage */
- get_header(); ?>
+?>
+
+<?php  get_header();  
+$slider_section = get_field('slider_section');
+?>
     
-    <!-- Bnner Section -->
     <section class="banner-section">
         <div class="banner-carousel owl-carousel owl-theme">
-            <div class="slide-item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/main-slider/image-1.jpg);">
+            <?php
+             foreach( $slider_section as $slider ): 
+                         $button = $slider['button']; 
+                         
+                         ?>
+            <div class="slide-item" style="background-image: url(<?php echo $slider['image']['url'] ?>);">
                 <div class="auto-container">
                     <div class="content-box">
-                        <h2>Architecture is a <br> Visual Art.</h2>
-                        <div class="text">The buildings speak for themselves</div>
+                        <?php if(!empty($slider['title'])): ?>
+                        <h2><?php echo $slider['title']; ?></h2>
+                        <?php endif; ?>
+
+                        <?php if(!empty($slider['description'])): ?>
+                        <div class="text"><?php echo $slider['description']; ?></div>
+                        <?php endif; ?>
+                        <?php
+                        
+                            if($button):
+                            $link_url = $button['url'];
+                            $link_title = $button['title'];
+                            $link_target = $button['target'] ? $link['target'] : '_self';
+
+                        ?>
                         <div class="link-box">
-                            <a href="about.html" class="theme-btn btn-style-one">Check Art</a>
+                            <a href="<?php echo esc_url( $link_url ); ?>  target="<?php echo esc_attr( $link_target ); ?>" class="theme-btn btn-style-one"><?php echo esc_html( $link_title ); ?></a>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
 
-            <div class="slide-item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/main-slider/image-2.jpg);">
-                <div class="auto-container">
-                    <div class="content-box">
-                        <h2>Architecture is a <br> Visual Art.</h2>
-                        <div class="text">The buildings speak for themselves</div>
-                        <div class="link-box">
-                            <a href="about.html" class="theme-btn btn-style-one">Check Art</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/main-slider/image-3.jpg);">
-                <div class="auto-container">
-                    <div class="content-box">
-                        <h2>Architecture is a <br> Visual Art.</h2>
-                        <div class="text">The buildings speak for themselves</div>
-                        <div class="link-box">
-                            <a href="about.html" class="theme-btn btn-style-one">Check Art</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
 
