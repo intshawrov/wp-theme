@@ -56,10 +56,12 @@ function contra_theme_support() {
 
       // This theme use wp nav menu on this location
 
-       register_nav_menus(array(
-            'menu-1'  => esc_html__('primary', 'contre')
-       ));
-      
+       register_nav_menus( array(
+      'menu-1'      => esc_html__( 'Primary', 'contra' ),
+      'quick_link'  => esc_html__( 'Quick Menu', 'contra' ),
+      'useful_link' => esc_html__( 'Useful Menu', 'contra' ),
+));
+
 }
 
 

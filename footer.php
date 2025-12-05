@@ -10,7 +10,12 @@
                             <!--Footer Column-->
 
                             <?php 
-                                $footer_logo_url = get_field("footer_logo", "option");  
+                                $footer_logo_url = get_field("footer_logo", "option");
+                                $footer_description = get_field("footer_description", "option");  
+                                $contact_us = get_field("contact_us", "option"); 
+                                $address = $contact_us['address'];
+                                $contact = $contact_us['contact'];
+                                $email_address = $contact_us['email_address'];
                                 ?>
 
                             <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -24,7 +29,9 @@
 
                                     <?php  } ?>
                                     <div class="widget-content">
-                                        <div class="text">Contra and layouts, in content of dummy text is nonsensical.typefaces of dummy text is appearance of different general the content of dummy text is nonsensical. typefaces of dummy text is nonsensical.</div>
+                                        <?php if(!empty($footer_description)){ ?>
+                                        <div class="text"><?php echo $footer_description; ?></div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -59,19 +66,21 @@
                     </div>
                     
                     <!--Big Column-->
+
                     <div class="big-column col-xl-5 col-lg-12 col-md-12 col-sm-12">
                         <div class="row clearfix">
                             <div class="footer-column col-xl-5 col-lg-6 col-md-6 col-sm-12">
                                  <div class="footer-widget links-widget">
                                     <h2 class="widget-title">Useful links</h2>
                                     <div class="widget-content">
-                                        <ul class="list">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="projects.html">Project</a></li>
-                                            <li><a href="blog-classic.html">News</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                        </ul>
+
+                                     <?php 
+                                        wp_nav_menu(array(
+                                            'theme_location'        => 'quick_link',
+                                            'menu_class'            => ' list quick link',
+                                        ));
+                                    ?>
+                                       
                                     </div>
                                 </div>
                             </div>
