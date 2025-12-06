@@ -32,7 +32,7 @@ $slider_section = get_field('slider_section');
 
                         ?>
                         <div class="link-box">
-                            <a href="<?php echo esc_url( $link_url ); ?>  target="<?php echo esc_attr( $link_target ); ?>" class="theme-btn btn-style-one"><?php echo esc_html( $link_title ); ?></a>
+                            <a href="<?php echo esc_url( $link_url ); ?>"  target="<?php echo esc_attr( $link_target ); ?>" class="theme-btn btn-style-one"><?php echo esc_html( $link_title ); ?></a>
                         </div>
                         <?php endif; ?>
                     </div>
@@ -104,7 +104,18 @@ $slider_section = get_field('slider_section');
                             <div class="text"><?php echo $about_section['description']; ?></div>
                             <?php endif; ?>
 
-                            <div class="link-box"><a href="about.html" class="theme-btn btn-style-one">About Us</a></div>
+                            <?php
+
+                            $button_link = $about_section['button_link'];
+                        
+                            if($button_link):
+                            $link_url = $button_link['url'];
+                            $link_title = $button_link['title'];
+                            $link_target = $button_link['target'] ? $link['target'] : '_self';
+
+                        ?>
+                            <div class="link-box"><a href="<?php echo esc_url( $link_url ); ?> " target="<?php echo esc_attr( $link_target ); ?>" class="theme-btn btn-style-one"><?php echo esc_html( $link_title ); ?></a></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -114,12 +125,16 @@ $slider_section = get_field('slider_section');
     <!--End About Section -->
 
     <!-- Services Section -->
+
+                <?php 
+                $specialazation_section = get_field('specialazation_section');
+                ?>
     <section class="services-section">
         <div class="upper-box" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/background/2.jpg);">
             <div class="auto-container">    
                 <div class="sec-title text-center light">
                     <span class="float-text">Specialization</span>
-                    <h2>Our Specialization</h2>
+                    <h2><?php echo $specialazation_section['section_title']; ?></h2>
                 </div>
             </div>
         </div>
@@ -135,134 +150,6 @@ $slider_section = get_field('slider_section');
                             </div>
                             <div class="lower-content">
                                 <h3><a href="service-detail.html">Architectural Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-2.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Interior Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-3.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Corporate Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-1.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Architectural Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-2.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Interior Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-3.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Corporate Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-1.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Architectural Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-2.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Interior Design</a></h3>
-                                <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
-                                <div class="link-box">
-                                    <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service Block -->
-                    <div class="service-block">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="service-detail.html"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/service-3.jpg" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="service-detail.html">Corporate Design</a></h3>
                                 <div class="text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they.</div>
                                 <div class="link-box">
                                     <a href="service-detail.html">Lorn More <i class="fa fa-long-arrow-right"></i></a>
