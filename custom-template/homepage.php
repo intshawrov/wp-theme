@@ -63,19 +63,30 @@ $slider_section = get_field('slider_section');
     <!-- End Bnner Section -->
 
     <!-- About Section -->
-    <section class="about-section" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/background/1.jpg);">
+
+                    <?php  
+                        $about_section = get_field('about_section');
+                        // echo"<pre>";
+                        // print_r($about_section);
+                    ?>
+    <section class="about-section" style="background-image: url(<?php echo $about_section['background_image']['url'] ?>);">
         <div class="auto-container">
             <div class="row no-gutters">
                 <!-- Image Column -->
                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column">
+                        <?php if(!empty($about_section['section_title'])) : ?>
                         <div class="title-box wow fadeInLeft" data-wow-delay='1200ms'>
-                            <h2>ABOUT <br> US</h2>
+                            <h2><?php echo $about_section['section_title']; ?></h2>
                         </div>
+                        <?php endif; ?>
+
+                        <?php if(!empty($about_section['right_image']['url']) || !empty($about_section['left_image']['url']) ) :  ?>
                         <div class="image-box">
-                            <figure class="alphabet-img wow fadeInRight"><img src="<?php echo get_template_directory_uri(); ?>/images/resource/alphabet-image.png" alt=""></figure>
-                            <figure class="image wow fadeInRight" data-wow-delay='600ms'><img src="<?php echo get_template_directory_uri(); ?>/images/resource/image-1.jpg" alt=""></figure>
+                            <figure class="alphabet-img wow fadeInRight"><img src="<?php echo $about_section['right_image']['url'] ?>" alt=""></figure>
+                            <figure class="image wow fadeInRight" data-wow-delay='600ms'><img src="<?php echo $about_section['left_image']['url'] ?>" alt=""></figure>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -83,10 +94,16 @@ $slider_section = get_field('slider_section');
                 <div class="content-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column wow fadeInLeft">
                         <div class="content-box">
+                            <?php if(!empty($about_section['title'])) : ?>
                             <div class="title">
-                                <h2>Any  Complexity <br>For Any Cat</h2>
+                                <h2><?php echo $about_section['title']; ?></h2>
                             </div>
-                            <div class="text">Our company has many years experience and specializes in manufacturing, salling, serviceing and repairing cardan shafts (cardans) for various vehicles, technological equipment, tractor, special machinery and agricultural machinery of verious domestic and foreign manufacturers.</div>
+                            <?php endif; ?>
+
+                            <?php if(!empty($about_section['description'])) : ?>
+                            <div class="text"><?php echo $about_section['description']; ?></div>
+                            <?php endif; ?>
+
                             <div class="link-box"><a href="about.html" class="theme-btn btn-style-one">About Us</a></div>
                         </div>
                     </div>
