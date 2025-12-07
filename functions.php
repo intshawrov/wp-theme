@@ -78,3 +78,15 @@ add_action('acf/init', function() {
 
   }
 });
+
+add_action('wp_enqueue_scripts', 'enqueue_parent_styles');
+function enqueue_parent_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+}
+
+
+add_filter('wp_nav_menu_args', 'contra_nav_menu_args');
+function contra_nav_menu_args($args) {
+  $args['show_home'] = false;
+  return $args;
+}
